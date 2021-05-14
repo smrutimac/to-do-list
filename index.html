@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>To-Do List</title>
+    <link rel="shortcut icon" type="image/jpg" href="index.png"/>
+    <style>
+        #mainContainer {
+            position: fixed;
+            top: 10%;
+            left: 30%;
+            width: 35%;
+        }
+        #textContainer{
+            position:relative;
+            text-align: center;
+        }
+        </style>
+  </head>
+  
+  <body style="background-color:antiquewhite;">
+    <div class="container" id="mainContainer">
+        <div class="container" id="textContainer">
+            To-Do List<br><br>
+            </div>
+        
+        <div class="container">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Enter Activity" aria-label="Enter Activity" id="activity">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" onClick="insertActivity()" type="button">Submit</button>
+                </div>
+              </div>
+        </div>
+        <div class="container" id="activityList">
+
+        </div>
+    </div>
+
+        <script>
+
+            var activityContainer = document.getElementById('activityList');
+
+            function insertActivity() {
+                var activity = document.getElementById('activity').value;
+                var paragraph = document.createElement('p');
+                paragraph.innerHTML = activity;
+                activityContainer.appendChild(paragraph); 
+                document.getElementById('activity').value = " ";
+
+                paragraph.addEventListener('click', function() {
+                    paragraph.style.textDecoration = "line-through";
+                })
+
+                paragraph.addEventListener('dblclick', function() {
+                    activityContainer.removeChild(paragraph);
+                })
+
+        }
+        </script>
+
+        
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
